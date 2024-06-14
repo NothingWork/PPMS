@@ -7,7 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class PpmsApplication {
 
     public static void main(String[] args) {
+        //启动springWeb服务线程
         SpringApplication.run(PpmsApplication.class, args);
+
     }
 
 }
