@@ -2,13 +2,14 @@
 import { ref } from 'vue'
 import Login from './login.vue'
 import Register from './register.vue'
+import ChangePwd from './changePwd.vue'
 
 const leftImg = ref('src/assets/index1.jpg')
 const rightImg = ref('src/assets/index2.jpg')
-const isLogin = ref(1)
+const index = ref(1)
 
-const updateIsLogin = (data) => {
-    isLogin.value = data
+const updateIndex = (data) => {
+    index.value = data
 }
 </script>
 
@@ -25,8 +26,9 @@ const updateIsLogin = (data) => {
             </div>
 
             <div id="body">
-                <Login v-if="isLogin" @getIsLogin="updateIsLogin" />
-                <Register v-else @getIsLogin="updateIsLogin" />
+                <Login v-if="(index === 1)" @getIndex="updateIndex" />
+                <ChangePwd v-else-if="(index === 2)" @getIndex="updateIndex" />
+                <Register v-else @getIndex="updateIndex" />
             </div>
         </div>
     </div>
